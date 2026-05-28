@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajitesh Gupta | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-cyan: #06b6d4;
+            --accent-red: #ef4444;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-glow: rgba(6, 182, 212, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0 3rem 0;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border-radius: 3px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #f43f5e, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-top: -1.5rem;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Hero / About Section */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .stat-card.wide {
+            grid-column: span 2;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-icon.red { color: var(--accent-red); }
+        .stat-icon.cyan { color: var(--accent-cyan); }
+
+        .stat-num {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .hero-text strong {
+            color: var(--text-main);
+        }
+
+        .quote-box {
+            border-left: 3px solid var(--accent-red);
+            padding-left: 1rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--accent-red);
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--text-main);
+            color: var(--bg-color);
+            padding: 0.8rem 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.2s;
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            background: var(--accent-cyan);
+            transform: scale(1.02);
+        }
+
+        /* Tech Stack Specs Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .spec-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            padding: 1.8rem;
+            position: relative;
+        }
+
+        .spec-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-cyan));
+            opacity: 0.7;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .spec-list {
+            list-style: none;
+        }
+
+        .spec-list li {
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .spec-list li::before {
+            content: '■';
+            color: var(--accent-red);
+            font-size: 0.7rem;
+        }
+
+        .spec-list.cyan li::before {
+            content: '■';
+            color: var(--accent-cyan);
+        }
+
+        /* Driver Profile & Resume Styling */
+        .profile-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .profile-card::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-cyan));
+            z-index: -1;
+            border-radius: 9px;
+            opacity: 0.3;
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-title-area .meta-name {
+            color: var(--accent-red);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .profile-title-area h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .profile-subtitle {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .profile-objective {
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            max-width: 500px;
+            font-size: 0.95rem;
+        }
+
+        .profile-contact {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header { flex-direction: column; }
+            .profile-contact { text-align: left; }
+        }
+
+        .resume-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .resume-section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--accent-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item.red-line {
+            border-left-color: var(--accent-red);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+        }
+
+        .timeline-item.red-line::before {
+            background: var(--accent-red);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-org {
+            font-size: 1.15rem;
+            font-weight: bold;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        .timeline-role {
+            color: var(--accent-cyan);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            padding: 0.1rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-top: 0.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-details {
+            list-style: none;
+        }
+
+        .timeline-details li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .timeline-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+        }
+
+        /* Awards Grid Layout */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .awards-grid { grid-template-columns: 1fr; }
+        }
+
+        .award-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 1.2rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .award-card::before {
+            content: '◆';
+            color: var(--accent-red);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">AG // DEV</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#specs">Specs</a>
+            <a href="#projects">Projects</a>
+            <a href="#profile">Profile</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <section id="about">
+            <div class="hero-grid">
+                
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon red">🏆</div>
+                        <div class="stat-num">9th</div>
+                        <div class="stat-label">Grade Student</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon cyan">&lt;/&gt;</div>
+                        <div class="stat-num">CSE</div>
+                        <div class="stat-label">Focus</div>
+                    </div>
+                    
+                    <div class="stat-card wide">
+                        <div class="stat-icon cyan">⚡</div>
+                        <div class="stat-num">∞</div>
+                        <div class="stat-label">Passion for Learning</div>
+                    </div>
+                </div>
+
+                <div class="hero-text">
+                    <div class="section-tag">Overview</div>
+                    <h2 class="section-title">Future With Math</h2>
+                    
+                    <p>I am a 9th-grade student on a mission to bridge the gap between <strong>mathematical theory and software engineering</strong>. My goal is to build a career where I can leverage technical skills to solve complex problems, particularly within the evolving landscape of <strong>AI</strong>. I believe that mastering the logic of math and computer science provides a definitive advantage in understanding the technologies of tomorrow.</p>
+                    
+                    <p>Engineering requires immense <strong>patience</strong>. Whether I'm assembling a custom PC from scratch, debugging a complex script, or memorizing intricate math formulas, I embrace the process. I view every difficult assignment as a challenge to find more efficient solutions, blending competitive individual focus with a collaborative spirit during group projects.</p>
+                    
+                    <p>Beyond the screen, I apply that same dedication to the <strong>Badminton court</strong>. Training with the team has taught me to control my emotions under pressure and that peak performance is the result of consistent practice. Whether it's a match-point or a broken line of code, I stay focused until the job is done.</p>
+                    
+                    <div class="quote-box">
+                        "Every formula is a strategy. Every project is a victory lap."
+                    </div>
+                    
+                    <a href="#projects" class="btn">View My Work</a>
+                </div>
+
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.05);">
+
+        <section id="specs">
+            <div style="text-align: center;">
+                <div class="section-tag">&lt;Tech_Stack /&gt;</div>
+                <h2 class="section-title">Performance Specs</h2>
+                <p class="section-subtitle">Technologies powering my development engine</p>
+            </div>
+
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <div class="spec-title"><span style="color:var(--accent-red)">&lt;&gt;</span> Languages</div>
+                    <ul class="spec-list">
+                        <li>Python</li>
+                        <li>HTML / CSS</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-title"><span style="color:var(--accent-cyan)">🥞</span> Frameworks</div>
+                    <ul class="spec-list cyan">
+                        <li style="color: rgba(255,255,255,0.25); list-style: none; font-style: italic;">Modules loading...</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-title"><span style="color:var(--accent-red)">_&gt;</span> Tools</div>
+                    <ul class="spec-list">
+                        <li>Git</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-title"><span style="color:var(--accent-cyan)">🗄️</span> Databases</div>
+                    <ul class="spec-list cyan">
+                        <li style="color: rgba(255,255,255,0.25); list-style: none; font-style: italic;">Expanding matrix...</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-title"><span style="color:var(--accent-red)">⚙️</span> Core CS</div>
+                    <ul class="spec-list">
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <div class="spec-title"><span style="color:var(--accent-cyan)">⚡</span> Learning</div>
+                    <ul class="spec-list cyan">
+                        <li>Web Development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.05);">
+
+        <section id="projects" style="text-align: center;">
+            <div class="section-tag">Portfolio</div>
+            <h2 class="section-title">Project Highlights</h2>
+            <p class="section-subtitle">Built at maximum velocity</p>
+            <div style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); padding: 3rem; border-radius: 6px; color: var(--text-muted);">
+                🧩 Repository processing. Exciting software engineering and mathematical builds dropping soon.
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.05);">
+
+        <section id="profile">
+            <div style="text-align: center;">
+                <div class="section-tag">Identity</div>
+                <h2 class="section-title">Driver Profile</h2>
+                <p class="section-subtitle">A full-throttle look at my background and capabilities</p>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-title-area">
+                        <div class="meta-name">Ajitesh</div>
+                        <h3>AJITESH GUPTA</h3>
+                        <div class="profile-subtitle">High School Student • Dublin, CA</div>
+                        <div class="profile-objective">
+                            "To obtain a full-time position to apply cooperative ability, academic experience and strong work ethic."
+                        </div>
+                    </div>
+                    <div class="profile-contact">
+                        <div>📍 3600 Central Parkway, Dublin, CA 94568</div>
+                        <div>✉️ gupta9483@mydusd.org</div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <div class="resume-section-title">🎓 Education</div>
+                    <div class="timeline-item red-line">
+                        <div class="timeline-header">
+                            <div class="timeline-org">Emerald High School</div>
+                            <div class="timeline-date">August 2025 — May 2029</div>
+                        </div>
+                        <div class="timeline-role">High School Diploma</div>
+                        <div class="badge">GPA: 3.86</div>
+                        <ul class="timeline-details">
+                            <li>Geometry</li>
+                            <li>Python Bootcamp (8th grade summer) — learned OOP and game development</li>
+                            <li>3.8 Average GPA in Middle School</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <div class="resume-section-title">🩵 Volunteer Experience</div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-org">Grow Wise</div>
+                            <div class="timeline-date">June 2025 — August 2025</div>
+                        </div>
+                        <div class="timeline-role">Volunteer Educator / Representative</div>
+                        <div style="font-size:0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">4564 Dublin Blvd, Dublin, CA 94568</div>
+                        <ul class="timeline-details">
+                            <li>Presented the company at a farmers market stand — explained the program and how kids benefit from it</li>
+                            <li>Taught kids basic coding in Python</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="resume-section" style="margin-bottom: 0;">
+                    <div class="resume-section-title">🎖️ Academic Awards</div>
+                    <div class="awards-grid">
+                        <div class="award-card">Honor Roll Award x4</div>
+                        <div class="award-card">Honor Roll in 4 semesters at Cotton Wood Creek</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ajitesh Gupta. Built with performance design mechanics.</p>
+    </footer>
+
+</body>
+</html>
