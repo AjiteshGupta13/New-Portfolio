@@ -258,6 +258,72 @@
             color: var(--accent-cyan);
         }
 
+        /* Project Portfolio Styling */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        @media (max-width: 850px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .project-video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-bottom: 2px solid var(--accent-red);
+        }
+
+        .project-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
         /* Driver Profile & Resume Styling */
         .profile-card {
             background: var(--card-bg);
@@ -411,6 +477,7 @@
             border-radius: 4px;
             margin-top: 0.3rem;
             margin-bottom: 0.8rem;
+            margin-right: 0.3rem;
         }
 
         .timeline-details {
@@ -589,9 +656,39 @@
             <div class="section-tag">Portfolio</div>
             <h2 class="section-title">Project Highlights</h2>
             <p class="section-subtitle">Built at maximum velocity</p>
-            <div style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); padding: 3rem; border-radius: 6px; color: var(--text-muted);">
-                🧩 Repository processing. Exciting software engineering and mathematical builds dropping soon.
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-video-container">
+                        <iframe src="https://drive.google.com/file/d/1-hrVa9iu7Oiipj8rsY_wifZduEJUrJ6V/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Autonomous Snow-Clearing Robot</h3>
+                        <div class="badge">Hardware</div>
+                        <div class="badge">Robotics</div>
+                        <div class="badge">Problem Solving</div>
+                        <p class="project-desc">
+                            Developed an autonomous snow-clearing robot to solve a practical real-world challenge. Designed to operate entirely without human assistance, this system provides a vital service for the elderly, individuals with mobility constraints, or busy homeowners who lack the time to manually plow snow. The project showcases a strong ability to bridge the gap between software logic and physical hardware execution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-video-container">
+                        <iframe src="https://drive.google.com/file/d/1rE0GMK5hdKX-M4V5Mou5VW0LxWAGOXUM/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Interactive Ordering System</h3>
+                        <div class="badge">Software</div>
+                        <div class="badge">Python</div>
+                        <div class="badge">User Flow</div>
+                        <p class="project-desc">
+                            Engineered a step-by-step digital ordering system designed to streamline the restaurant checkout process. The application sequentially guides users through a menu, prompting them individually for each item to ensure an intuitive, error-free user experience. This project demonstrates strong foundational skills in interactive user prompts, conditional logic, and state management.
+                        </p>
+                    </div>
+                </div>
             </div>
+
         </section>
 
         <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.05);">
