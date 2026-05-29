@@ -347,11 +347,28 @@
         .profile-header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             gap: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 2rem;
             margin-bottom: 2rem;
+        }
+
+        .profile-identity {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 110px;
+            height: 135px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: -5px 5px 0px rgba(6, 182, 212, 0.5);
         }
 
         .profile-title-area .meta-name {
@@ -366,20 +383,21 @@
             font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: 1px;
+            line-height: 1.1;
         }
 
         .profile-subtitle {
             color: var(--accent-cyan);
             font-weight: 600;
             font-size: 1rem;
-            margin-top: 0.2rem;
+            margin-top: 0.4rem;
         }
 
         .profile-objective {
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             color: var(--text-muted);
             font-style: italic;
-            max-width: 500px;
+            max-width: 450px;
             font-size: 0.95rem;
         }
 
@@ -394,7 +412,8 @@
         }
 
         @media (max-width: 768px) {
-            .profile-header { flex-direction: column; }
+            .profile-header { flex-direction: column; align-items: flex-start; }
+            .profile-identity { flex-direction: column; align-items: flex-start; }
             .profile-contact { text-align: left; }
         }
 
@@ -702,14 +721,19 @@
 
             <div class="profile-card">
                 <div class="profile-header">
-                    <div class="profile-title-area">
-                        <div class="meta-name">Ajitesh</div>
-                        <h3>AJITESH GUPTA</h3>
-                        <div class="profile-subtitle">High School Student • Dublin, CA</div>
-                        <div class="profile-objective">
-                            "To obtain a full-time position to apply cooperative ability, academic experience and strong work ethic."
+                    
+                    <div class="profile-identity">
+                        <img src="image_bad7fe.png" alt="Ajitesh Gupta" class="profile-image">
+                        <div class="profile-title-area">
+                            <div class="meta-name">Ajitesh</div>
+                            <h3>AJITESH GUPTA</h3>
+                            <div class="profile-subtitle">High School Student • Dublin, CA</div>
+                            <div class="profile-objective">
+                                "To obtain a full-time position to apply cooperative ability, academic experience and strong work ethic."
+                            </div>
                         </div>
                     </div>
+
                     <div class="profile-contact">
                         <div>📍 3600 Central Parkway, Dublin, CA 94568</div>
                         <div>✉️ gupta9483@mydusd.org</div>
